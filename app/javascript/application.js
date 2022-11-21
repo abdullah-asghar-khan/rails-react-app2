@@ -1,9 +1,29 @@
-import { Application } from "@hotwired/stimulus"
+// Entry point for the build script in your package.json
+import "@hotwired/turbo-rails"
+import "./controllers"
 
-const application = Application.start()
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import Greeting from "./components/Greeting";
 
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+function App() {
+  return (
+    <div className="App">
+      <Routes>       
+        <Route path="/" element={<Greeting />}/>
+      </Routes>
+    </div>
+  );
+}
 
-export { application }
+ReactDOM.render(  
+    <BrowserRouter>
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    </BrowserRouter>,
+  document.getElementById('root'),
+);
