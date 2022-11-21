@@ -5,7 +5,6 @@
   <br/>
 
   <h3><b>Microverse README Template</b></h3>
-
 </div>
 
 # 📗 Table of Contents
