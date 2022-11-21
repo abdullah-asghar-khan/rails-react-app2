@@ -1,28 +1,26 @@
-// Entry point for the build script in your package.json
-import "@hotwired/turbo-rails"
-import "./controllers"
-
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Greeting from "./components/Greeting";
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchGreeting } from '../redux/greetingSlice';
 
-function App() {
-  return (<h1>Hello World!</h1>);
+const Greeting = () => {
+  const greeting = useSelector(state => state.greeting);
+  const dispatch = useDispatch();
+  console.log(greeting)
+  
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<div>Static page</div>}/>
-        <Route path="/greetings" element={<Greeting />}/>
-      </Routes>
+    <div>
+      <h1>{greeting.message}</h1>
+      <button
+        style={{ fontSize: '2em', padding: 20, backgroundColor: 'blue', color: 'white' }}
+        type="button"
+        onClick={() => {
+          dispatch(fetchGreeting())
+        }}
+      >
+        greet
+      </button>
     </div>
-  );
+  )
 }
 
-ReactDOM.render(
-  <App/>,
-  <BrowserRouter>
-    <App/>
-  </BrowserRouter>,
-  document.getElementById('root'),
-);
+export default Greeting;
