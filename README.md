@@ -81,7 +81,7 @@ This projects aim is to help me understand the key features of API Only rails ap
 
 ## 🚀 Front End (React) <a name="live-demo"></a>
 
-Click here to see the [front end repo](https://github.com/AsimKhan2019/Hello_Front_End_REACT/tree/setup-feature-api)
+Click here to see the [front end repo](https://github.com/Abdullah2213565/rails-react-app2.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
